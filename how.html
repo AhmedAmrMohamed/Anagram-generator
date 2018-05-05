@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="how.css">
+  </head>
+  <body >
+    <ul class="toolbar">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="Famous.html">Famous Anagrams</a></li>
+      <li><a href="how.html">How does it work</a></li>
+      <li><a href="msg.html">Feedback/opinons</a></li>
+    </ul>
+    <div class="cont">
+    <h1>How do we know if two words are anagrams?</h1><br>
+    <p>there are couple of easy ways to<p>
+      <dl>
+        <dt>sort and compare</dt>
+          <dd>we can sort the letters of the two words alphabiticly and check if they are equal</dd>
+          <dt>count and go</dt>
+          <dd>simply count the the frequency of every letter in the two words.</dd>
+        </dl>
+      <p>
+        the first method takes <span class='O'>O(n)</span> while the second takes <span class='O'>O(nlg(n))</span>. which is ok in most cases but not in ours.
+        because we are trying to find an anagram for a word. so if we went over every word in our dcitionary and check is they are Anagrams
+        we end up with <span class='O'>O(n*m)</span>.
+      </p>
+
+        <h1>Think like a prime</h1>
+        <div >
+            <img src="factor-tree.gif">
+            <p>We do know that evey number can be factored to a unique set of prime numbers<p>
+            <p>We will use that into our advantage</p>
+            <p>First map every letter in the alpabet to a prime number. then go throuh your dictionary and calculate the product of every word by multiplying its letters.</P>
+            <p>you will notice that angrams  have the same product</p>
+            <p>Now store the result in a hashtable where the key is the product and the value is the word itself</p>
+            <p>Now we want to find all anagrams to a word. simply caluculate it's product and get all the words of the same product<p>
+            </div>
+        </div>
+      </div>
+  </body>
+</html>
