@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+      imageSrc = ['vold.jpg','mona.jpg','motherinlaw.jpg']
+      titles   =['I am lord Voldemort','Oh Dorcanian devil','Hitler woman']
+      vold     = "In Harry Potter and the cambner of secrets. the diary of Tom riddle revels that \"I am lord Voldemort\" is an angram to his real name \"Tom Marvolo Riddle\".<br>Neat huh? "
+      mona     = 'In the great novel \'The Divinci code\' A secret message was left at a crime scene by the victim that read \'oh dorcanian devil\' which was latter noticed to be an angram to the Moia lisa.'
+      hit      = 'Ever noticed that Mother-in-law is an angram to \'Hitler woman\' <br>Evidently not a coincidence'
+      des      =[vold,mona,hit]
+      activePic=0;
+      function changePic(x)
+        {
+          console.log('changed')
+          activePic+=x;
+          if(activePic==-1)activePic=imageSrc.length-1
+          activePic%=imageSrc.length
+          document.getElementById('image').src=imageSrc[activePic];
+          document.getElementById('title').innerHTML = titles[activePic];
+          document.getElementById('des').innerHTML = des[activePic];
+        }
+    </script>
+
+  </head>
+  <body>
+
+    <ul class="toolbar">
+  	  <li><a href="home.html">Home</a></li>
+  	  <li><a href="Famous.html">Famous Anagrams</a></li>
+  	  <li><a href="how.html">How does it work</a></li>
+  	  <li><a href="msg.html">Feedback/opinons</a></li>
+  	</ul>
+     <div class="container bgwhite">
+       <div >
+          <h1 id='title'>I am lord Voldemort</h1>
+       </div>
+       <div class="row">
+         <img id='image' src='vold.jpg' style="float:left">
+       </div>
+       <div class="row">
+         <p class="home" id='des'></p>
+       </div>
+         <img src='cprev.png' id="prev" onclick="changePic(-1);"> <img src='cnext.png' id="next" onclick="changePic(1);">
+     </div>
+     <script>
+       changePic(1);
+     </script>
+  </body>
+</html>
