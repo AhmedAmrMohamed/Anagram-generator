@@ -42,6 +42,7 @@ function seive() //return
     function addtodic(word)
     {
       key = wordToKey(word.toLowerCase())
+      // console.log(word.toLowerCase())
       // console.log(dic[key]==null)
       if(dic[key]==null)
           dic[key]=[];
@@ -105,7 +106,7 @@ function seive() //return
       word=''.concat(trim(word))
       // console.log(word)
       // console.log(getAnagrams(word)==null)
-      dis(getAnagrams(word))
+      dis(getAnagrams(word.toLowerCase()))
       // return document.getElementById('he');
 
     }
