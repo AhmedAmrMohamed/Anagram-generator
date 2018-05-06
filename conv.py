@@ -1,6 +1,0 @@
-f=open('cob.txt','r')
-inp = f.read().split()
-inp='\',\''.join(inp)
-fi=open('words.txt','w')
-print(inp,file=fi)
-fi.close()

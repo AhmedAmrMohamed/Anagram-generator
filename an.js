@@ -1,5 +1,6 @@
 pr=[] //conation 26 prime number.
 dic=[]  //in c++ map<int,vector <string> > dic;
+// console.log('as')
 function seive() //return
   {
     numbers =[];
@@ -40,7 +41,7 @@ function seive() //return
     }
     function addtodic(word)
     {
-      key = wordToKey(word)
+      key = wordToKey(word.toLowerCase())
       // console.log(dic[key]==null)
       if(dic[key]==null)
           dic[key]=[];
@@ -48,12 +49,23 @@ function seive() //return
     }
     function getAnagrams(word)
       {
-        return  dic[wordToKey(word)];
+        return dic[wordToKey(word)];
+        // if(arr==null)arr=[];
+        // // divs = divide(word)
+        // // console.log(arr)
+        // for(i=0;i<divs.length;i++)
+        //   {
+        //
+        //     // if(divs[i]!=null)
+        //     // arr = arr.concat(dic[divs[i]]);
+        //   }
+        // console.log(arr)
+        // return arr;
       }
     function loadDic()
       {
         si = wordme.length;
-        console.log(si)
+        // console.log(si)
         for(var i=0;i<370099;i++)
         {
           addtodic(wordme[i])
@@ -68,11 +80,12 @@ function seive() //return
         res='';
         for(var i=0;i<si;i++)
           {
-            console.log(arr[i])
+            // console.log(arr[i])
             res +='<input type = \'button\' id=\''+arr[i]+'\'value=\''+arr[i]+'\' class = \'anagram\' onclick=\'deff('+arr[i]+');\' > <br>'
-            console.log(res)
+            // console.log(res)
           }
         }
+
           document.getElementById('out').innerHTML = res;
       }
       function trim(word)
@@ -90,7 +103,7 @@ function seive() //return
       var word = (document.getElementById('he').value);
       // var word = (document.getElementById('he').elements[0].value);
       word=''.concat(trim(word))
-      console.log(word)
+      // console.log(word)
       // console.log(getAnagrams(word)==null)
       dis(getAnagrams(word))
       // return document.getElementById('he');
@@ -101,3 +114,21 @@ function seive() //return
         link = 'https://www.google.com/search?source=hp&ei=QszsWpXMK4P9sQHRv4YY&q='+drx.value+' meaning&oq=boom&gs_l=psy-ab.3..0i67k1l6j0l4.3661.5618.0.5973.11.8.1.0.0.0.302.907.0j1j2j1.4.0....0...1c.1.64.psy-ab..6.5.912.0..46j0i10i67k1j0i10k1j35i39k1j0i131k1j0i46k1.0.uBzqEfNqnQk'
         window.open(link);
       }
+      function divide(word)
+        {
+          len = word.length
+          words = []
+          function solve(cur,temp)
+            {
+              if(cur==len)words.push(temp);
+              else
+              {
+                solve(cur+1,temp*map(word[cur]));
+                solve(cur+1,temp);
+              }
+            }
+            solve(0,1)
+            temp = []
+
+            return words
+        }
