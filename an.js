@@ -1,5 +1,6 @@
 pr=[] //conation 26 prime number.
 dic=[]  //in c++ map<int,vector <string> > dic;
+// memo=[]
 // console.log('as')
 function seive() //return
   {
@@ -50,7 +51,10 @@ function seive() //return
     }
     function getAnagrams(word)
       {
-        return dic[wordToKey(word)];
+        return divide(word);
+        // refs =  divide(word);
+          // console.log(dic[wordToKey(word)])
+        // return dic[wordToKey(word)];
         // if(arr==null)arr=[];
         // // divs = divide(word)
         // // console.log(arr)
@@ -116,20 +120,27 @@ function seive() //return
         window.open(link);
       }
       function divide(word)
-        {
-          len = word.length
-          words = []
-          function solve(cur,temp)
+      {
+          len_word=word.length;
+          memo =[];
+          res=[];
+          function dp(idx=0,pro=1) //because every thing is better with dp.
             {
-              if(cur==len)words.push(temp);
-              else
-              {
-                solve(cur+1,temp*map(word[cur]));
-                solve(cur+1,temp);
-              }
+              if(memo[pro]!=null||idx>len_word)return;
+              if(idx==len_word)
+                {
+                  if(pro<900)return;
+                  // memo[pro]=dic[pro];
+                  memo[pro]=1
+                  console.log(dic[pro])
+                  for(i=0;dic[pro]&&i<dic[pro].length;i++)
+                  res.push(dic[pro][i]);
+                  return;
+                }
+              // console.log(word[idx])
+              dp(idx+1,pro*map(word[idx]));
+              dp(idx+1,pro);
             }
-            solve(0,1)
-            temp = []
-
-            return words
-        }
+            dp()
+          return res;
+      }
